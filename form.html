@@ -8,19 +8,35 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ollieshmollie.github.io" />
   <meta property="og:title" content="Pizza Cat" />
-  <meta property="og:description" content="My reviews of local Austin pizza." />
+  <meta property="og:description" content="Share the pizzas you love." />
   <meta property="og:image" content="http://ollieshmollie.github.io/assets/pizza_cat_og_image.png" />
   <meta property="og:image:width" content="120" />
   <meta property="og:image:height" content="120" />
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-
   <header>
     <h1>Pizza Cat<span id="registered-trademark">&reg;</span></h1>
-    <p>Reviews of Local Austin Pizza</p>
+    <p>Share the pizza you love.</p>
     <img src="assets/pizza_cat.png" alt="Pizza Cat"/>
   </header>
+  <form name ="restaurant-rating" action="https://httpbin.org/post" method="post">
+    <fieldset>
+      <label for="restaurant_name">Restaurant</label>
+      <input type="text" id="restaurant_name" name="restaurant_name">
+      <label for="rating">Rating</label>
+      <select name="rating" id="rating">
+        <option value="1">1 star</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option value="5">5 stars</option>
+      </select>
+      <label for="notes">Notes</label>
+      <textarea name="notes" id="notes"></textarea>
+    </fieldset>
+    <input type="submit">
+  </form>
 
 </body>
 </html>
