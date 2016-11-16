@@ -6,9 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
   </head>
 
   <body>
+    <header>
+      <h1>Pizza Cat<span id="registered-trademark">&reg;</span></h1>
+      <p>Share the pizza you love.</p>
+      <%= image_tag("pizza_cat.png", alt: "Pizza Cat") %>
+  </header>
     <%= yield %>
   </body>
 </html>
