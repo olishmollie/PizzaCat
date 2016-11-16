@@ -1,3 +1,9 @@
+body {
+  width: 80%;
+  margin: auto;
+  background-color: wheat;
+}
+
 header {
   width: 100%;
   margin: 0 auto;
@@ -13,6 +19,7 @@ header {
 header img {
   display: block;
   margin: 0 auto;
+  width: 250px;
 }
 
 header h1 {
@@ -29,6 +36,15 @@ header p {
   bottom: 0px;
   right: 32px;
   text-shadow: 1px 1px 1px black;
+}
+
+header nav {
+  font-family: initial;
+  display: inline;
+}
+
+header nav a {
+  color: white;
 }
 
 form {
@@ -61,4 +77,3 @@ table th {
   font-size: 12pt;
   vertical-align: super;
 }
-
