@@ -1,14 +1,14 @@
-<p>
-  <strong>Restaurant:</strong>
-  <%= @rating.restaurant.name %>
-</p>
+<h1>Rating</h1>
 
-<p>
-  <strong>Stars</strong>
-  <%= @rating.star %>
-</p>
-
-<p>
-  <strong>Notes</strong>
-  <%= @rating.notes %>
-</p>
+<table>
+  <tr>
+    <th>Restaurant</th>
+    <th>Stars</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td><%= @rating.restaurant.name %></td>
+    <td><%= @rating.star %></td>
+    <td><%= @rating.notes %></td>
+  </tr>
+</table>
