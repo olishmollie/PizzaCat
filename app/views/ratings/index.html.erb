@@ -1,0 +1,11 @@
+<h1>All Ratings</h1>
+
+<% @ratings.each do |r| %>
+  <p>
+    <strong><%= r.restaurant.name %></strong>
+  </p>
+  <ul>
+    <li><%= r.star %></li>
+    <li><%= r.notes %></li>
+  </ul>
+<% end %>
