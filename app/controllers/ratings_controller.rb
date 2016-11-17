@@ -1,4 +1,7 @@
 class RatingsController < ApplicationController
+  
+  before_filter :authorize
+
   def new
     @rating = Rating.new
   end

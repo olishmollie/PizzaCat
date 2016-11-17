@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+  
+  before_filter :authorize
+
   def new
     @restaurant = Restaurant.new
   end

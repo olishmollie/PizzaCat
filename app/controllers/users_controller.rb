@@ -4,9 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new[user_params]
-    @user.save
-    redirect_to @user
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to '/ratings'
+    else
+      render plain: "Unable to save user to db"
+    end
   end
 
   def show
