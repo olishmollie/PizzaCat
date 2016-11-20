@@ -13,12 +13,16 @@
     <header>
       <h1>Pizza Cat<span id="registered-trademark">&reg;</span></h1>
       <p>Share the pizza you love.</p>
-      <%= link_to image_tag("pizza_cat.png", alt: "Pizza Cat"), '/' %>
+      <% if @current_user %>
+        <%= link_to image_tag("pizza_cat.png", alt: "Pizza Cat"), user_ratings_path %>
+      <% else %>
+        <%= link_to image_tag("pizza_cat.png", alt: "Pizza Cat"), '/' %>
+      <% end %>
       <nav>
         <% if @current_user%>
           <%= link_to "Logout", "/logout" %>
-          <%= link_to "Ratings", ratings_path %>
-          <%= link_to "Restaurants", restaurants_path %>
+          <%= link_to "Ratings", user_ratings_path %>
+          <%= link_to "Restaurants", user_restaurants_path %>
         <% else %>
           <%= link_to "Login", '/login' %>
           <%= link_to "Signup", '/signup' %>

@@ -3,14 +3,15 @@ class RatingsController < ApplicationController
   before_filter :authorize
 
   def new
-    @rating = Rating.new
   end
 
   def create
-    @rating = Rating.new(rating_params)
-    @rating.user_id = 1
-    @rating.save
-    redirect_to @rating
+    @rating = User.ratings.new(rating_params)
+    if @rating.save
+      redirect_to @rating
+    else
+      render plain: "Unable to save rating to database"
+    end
   end
 
   def show
@@ -18,7 +19,8 @@ class RatingsController < ApplicationController
   end
 
   def index
-    @ratings = Rating.all
+    @user = User.find(session[:user_id])
+    @ratings = @user.ratings.all
   end
 
   private
