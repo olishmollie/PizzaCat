@@ -1,5 +1,6 @@
+require('modules/encryption.rb')
+
 class User < ApplicationRecord
-  require('modules/encryption.rb')
   include Encryption
   has_many :ratings
   has_many :restaurants, through: :ratings

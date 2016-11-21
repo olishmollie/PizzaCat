@@ -23,12 +23,14 @@
           <%= link_to "Logout", "/logout" %>
           <%= link_to "Ratings", user_ratings_path(@current_user.id) %>
           <%= link_to "Restaurants", user_restaurants_path(@current_user.id) %>
+          <%= link_to "Rate a Restaurant", new_user_rating_path(@current_user.id) %>
         <% else %>
           <%= link_to "Login", '/login' %>
           <%= link_to "Signup", '/signup' %>
         <% end %>
       </nav>
   </header>
+    <p><%= "User: #{@current_user.username}" if @current_user%></p>
     <%= yield %>
   </body>
 </html>

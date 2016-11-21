@@ -1,1 +1,5 @@
-<h1>Your Restaurants</h1>
+<h1>Your Reviewed Restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <p><%= restaurant.name %></p>
+<% end %>

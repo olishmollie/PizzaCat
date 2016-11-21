@@ -1,13 +1,9 @@
 class RestaurantsController < ApplicationController
-
   def new
     @restaurant = Restaurant.new
   end
 
   def create
-    @restaurant = Restaurant.new[restaurant_params]
-    @user.save
-    redirect_to @user
   end
 
   def show
@@ -15,7 +11,8 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-    @restaurant = Restaurant.all
+    user = User.find(session[:user_id]) if session[:user_id]
+    @restaurants = user.restaurants.all
   end
 
   private

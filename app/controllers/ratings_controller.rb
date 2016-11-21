@@ -4,9 +4,11 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = User.ratings.new(rating_params)
+    user = User.find(session[:user_id])
+    @rating = user.ratings.new(rating_params)
+    @rating.user_id = user.id
     if @rating.save
-      redirect_to @rating
+      redirect_to user_rating_path(user.id, @rating.id)
     else
       render plain: "Unable to save rating to database"
     end
@@ -23,6 +25,6 @@ class RatingsController < ApplicationController
 
   private
     def rating_params
-      params.require(:rating).permit(:restaurant_id, :star, :notes)
+      params.require(:rating).permit(:restaurant_id, :stars, :notes)
     end
 end
