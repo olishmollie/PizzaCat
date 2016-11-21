@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117140420) do
+ActiveRecord::Schema.define(version: 20161121052645) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "stars",         null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161117140420) do
     t.string   "state",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "webpage"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161117140420) do
     t.string   "password",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "email"
+    t.string   "email",      null: false
   end
 
 end
