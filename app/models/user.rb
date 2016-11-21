@@ -7,7 +7,7 @@ class User < ApplicationRecord
   before_save :encrypt_password
 
   def authenticate(password)
-    password == decrypt(self.password)
+    encrypt(password) == self.password
   end
 
   def encrypt_password
