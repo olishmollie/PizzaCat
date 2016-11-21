@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  skip_before_action :authorize, only: [:new]
+  skip_before_action :authorize, only: [:new, :create]
 
   def new
     @user = User.new
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_ratings_path(@user)
+      redirect_to user_path(@user)
     else
       render plain: "Unable to save user to db"
     end
