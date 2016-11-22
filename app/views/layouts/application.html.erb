@@ -22,7 +22,6 @@
         <% if @current_user%>
           <%= link_to "Logout", "/logout" %>
           <%= link_to "Ratings", user_ratings_path(@current_user.id) %>
-          <%= link_to "Restaurants", user_restaurants_path(@current_user.id) %>
         <% else %>
           <%= link_to "Login", '/login' %>
           <%= link_to "Signup", '/signup' %>

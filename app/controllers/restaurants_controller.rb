@@ -14,8 +14,8 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-    user = User.find(session[:user_id]) if session[:user_id]
-    @restaurants = user.restaurants.all
+    @user = User.find(session[:user_id]) if session[:user_id]
+    @restaurants = Restaurant.all
   end
 
   private

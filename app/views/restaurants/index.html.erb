@@ -1,5 +1,9 @@
-<h1>Your Reviewed Restaurants</h1>
+<h1>Welcome!</h1>
 
+<p>This will be the user's welcome page. Click on a restaurant to see its ratings.</p>
 <% @restaurants.each do |restaurant| %>
-  <p><%= restaurant.name %></p>
+  <p>
+    <%= link_to restaurant.name, restaurant_path(restaurant.id) %>
+    <span><%= "\u2713".encode('utf-8') if @user.has_rated?(restaurant)%></span>
+  </p>
 <% end %>

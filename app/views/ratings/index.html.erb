@@ -6,7 +6,10 @@
     <tr>
       <td>
         <%= r.restaurant.name %>
-        <span><%= link_to "Edit", edit_user_restaurant_rating_path(r.user.id, r.restaurant.id, r.id) %>   
+        <span>
+          <%= link_to "Edit", edit_user_restaurant_rating_path(r.user.id, r.restaurant.id, r.id) %>
+          <%= link_to "Delete", user_restaurant_rating_path(r.user.id, r.restaurant.id, r.id), method: "delete" %>
+        </span> 
       </td>
       <td><%= r.stars %></td>
       <td><%= r.notes %></td>

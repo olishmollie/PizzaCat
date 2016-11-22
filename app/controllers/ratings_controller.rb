@@ -34,6 +34,16 @@ class RatingsController < ApplicationController
     end
   end
 
+  def destroy
+    @rating = Rating.find(params[:id])
+    @restaurant = @rating.restaurant
+    if @rating.delete
+      redirect_to restaurant_path(@restaurant.id)
+    else
+      render plain: "Unable to remove rating from database"
+    end
+  end
+
   def show
     @rating = Rating.find(params[:id])
   end

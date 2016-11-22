@@ -22,6 +22,7 @@
 <% if @user && @user.has_rated?(@restaurant) %>
   <p>Your review:</p>
   <%= link_to "Edit", edit_user_restaurant_rating_path(@user.id, @restaurant.id, @rating.id) %>
+  <%= link_to "Delete", user_restaurant_rating_path(@user.id, @restaurant.id, @rating.id), method: "delete" %>
   <table>
     <tr>
       <th>Stars</th>
