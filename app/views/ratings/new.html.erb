@@ -1,9 +1,8 @@
 <h1>New Rating</h1>
 
-<%= form_for :rating, url: user_ratings_path do |f| %>
+<%= form_for :rating, url: user_restaurant_ratings_path(@user.id, @restaurant.id) do |f| %>
   <p>
-    <%= f.label "Restaurant" %><br>
-    <%= f.select(:restaurant_id, options_from_collection_for_select(Restaurant.all, "id", "name")) %>
+    <strong><%= @restaurant.name %></strong>
   </p>
 
   <p>

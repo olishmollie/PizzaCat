@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
-  resources :users, only: [:create, :show, :destroy] do
-    resources :ratings
-    resources :restaurants, only: [:show, :index]
+  resources :users do
+    resources :ratings, only: [:index]
+    resources :restaurants, only: [:index, :show] do
+      resources :ratings
+    end
   end
-  resource :restaurants, only: [:index]
+  resources :restaurants, only: [:index, :show]
   root 'welcome#index'
 end

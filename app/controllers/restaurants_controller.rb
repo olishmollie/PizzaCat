@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @ratings = @restaurant.ratings.all
+    @rating = @current_user.ratings.find_by(restaurant_id: @restaurant.id) if @current_user.has_reviewed?(@restaurant)
   end
 
   def index
