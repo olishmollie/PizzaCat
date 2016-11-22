@@ -1,13 +1,13 @@
-<h1>New Rating</h1>
+<h1>Edit Rating</h1>
 
-<%= form_for :rating, url: {action: :create} do |f| %>
+<%= form_for :rating, url: {action: :update}, method: "patch" do |f| %>
   <p>
   <strong><%= @restaurant.name %></strong>
 </p>
 
 <p>
   <%= f.label "Stars" %><br>
-  <%= f.select(:stars, options_for_select(1..5)) %>
+  <%= f.select(:stars, options_for_select(1..5, @rating.stars)) %>
 </p>
 
 <p>

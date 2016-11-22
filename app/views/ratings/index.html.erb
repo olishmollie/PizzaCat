@@ -4,7 +4,10 @@
   <%= render 'partials/rating_th' %>
   <% @ratings.each do |r| %>
     <tr>
-      <td><%= r.restaurant.name %></td>
+      <td>
+        <%= r.restaurant.name %>
+        <span><%= link_to "Edit", edit_user_restaurant_rating_path(r.user.id, r.restaurant.id, r.id) %>   
+      </td>
       <td><%= r.stars %></td>
       <td><%= r.notes %></td>
     </tr>

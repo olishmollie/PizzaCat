@@ -21,6 +21,7 @@
 
 <% if @user && @user.has_rated?(@restaurant) %>
   <p>Your review:</p>
+  <%= link_to "Edit", edit_user_restaurant_rating_path(@user.id, @restaurant.id, @rating.id) %>
   <table>
     <tr>
       <th>Stars</th>

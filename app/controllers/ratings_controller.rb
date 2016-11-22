@@ -1,20 +1,36 @@
 class RatingsController < ApplicationController
+  before_filter :new, only: :create
+  before_filter :edit, only: :update
 
   def new
     @user = User.find(params[:user_id])
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @rating = Rating.new
   end
 
   def create
-    rating = Rating.new(rating_params)
-    user = User.find(params[:user_id])
-    restaurant = Restaurant.find(params[:restaurant_id])
-    rating.user_id = user.id
-    rating.restaurant_id = restaurant.id
-    if rating.save
-      redirect_to user_ratings_path(user.id, rating.id)
+    @rating = Rating.new(rating_params)
+    @rating.user_id = @user.id
+    @rating.restaurant_id = @restaurant.id
+    if @rating.save
+      redirect_to user_ratings_path(@user.id, @rating.id)
     else
       render plain: "Unable to save rating to database"
+    end
+  end
+
+  def edit
+    @rating = Rating.find(params[:id])
+    @user = @rating.user
+    @restaurant = @rating.restaurant
+  end
+
+  def update
+    @rating.assign_attributes(rating_params)
+    if @rating.save
+      redirect_to user_ratings_path(@user.id, @rating.id)
+    else
+      render plain: "Unable to update rating in database"
     end
   end
 
