@@ -1,11 +1,7 @@
 <h1>Rating</h1>
 
 <table>
-  <tr>
-    <th>Restaurant</th>
-    <th>Stars</th>
-    <th>Notes</th>
-  </tr>
+  <%= render 'partials/rating_th' %>
   <tr>
     <td><%= @rating.restaurant.name %></td>
     <td><%= @rating.stars %></td>

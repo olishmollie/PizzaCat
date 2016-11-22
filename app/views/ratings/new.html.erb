@@ -1,21 +1,3 @@
 <h1>New Rating</h1>
 
-<%= form_for :rating, url: user_restaurant_ratings_path(@user.id, @restaurant.id) do |f| %>
-  <p>
-    <strong><%= @restaurant.name %></strong>
-  </p>
-
-  <p>
-    <%= f.label "Stars" %><br>
-    <%= f.select(:stars, raw('<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>')) %>
-  </p>
- 
-  <p>
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render "partials/rating_form" %>
