@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :restaurants, through: :ratings
   before_save :encrypt_password
 
+  def has_rated?(restaurant)
+    self.restaurants.exists?(restaurant.id)
+  end
+
   def authenticate(password)
     encrypt(password) == self.password
   end

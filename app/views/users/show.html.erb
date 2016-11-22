@@ -4,6 +4,6 @@
 <% @restaurants.each do |restaurant| %>
   <p>
     <%= link_to restaurant.name, restaurant_path(restaurant.id) %>
-    <span><%= "\u2713".encode('utf-8') if @user.has_reviewed?(restaurant)%></span>
+    <span><%= "\u2713".encode('utf-8') if @user.has_rated?(restaurant)%></span>
   </p>
 <% end %>

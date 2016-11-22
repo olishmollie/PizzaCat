@@ -19,7 +19,7 @@
   <p>There are no reviews for this restaurant yet.</p>
 <% end %>
 
-<% if @rating %>
+<% if @user && @user.has_rated?(@restaurant) %>
   <p>Your review:</p>
   <table>
     <tr>
