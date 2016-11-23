@@ -1,0 +1,18 @@
+<header>
+  <h1>Pizza Cat<span id="registered-trademark">&reg;</span></h1>
+  <p>Share the pizza you love.</p>
+  <% if @current_user %>
+    <%= link_to image_tag("pizza_cat.png", alt: "Pizza Cat"), user_path(@current_user.id) %>
+  <% else %>
+    <%= link_to image_tag("pizza_cat.png", alt: "Pizza Cat"), '/' %>
+  <% end %>
+  <nav>
+    <% if @current_user%>
+      <%= link_to "Logout", "/logout" %>
+      <%= link_to "Ratings", user_ratings_path(@current_user.id) %>
+    <% else %>
+      <%= link_to "Login", '/login' %>
+      <%= link_to "Signup", '/signup' %>
+    <% end %>
+  </nav>
+</header>
