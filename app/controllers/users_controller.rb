@@ -17,7 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @restaurants = Restaurant.all
+    redirect_to user_restaurants_path(@user.id) if @user == @current_user
+    @restaurants = @user.restaurants.all
+    @ratings = @user.ratings.all
   end
 
   def index
